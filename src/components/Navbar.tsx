@@ -8,7 +8,7 @@ const Navbar = () => {
         {/* <Link as={ReactRouterLink} to = '/home'>
             Home
         </Link> */}
-        <Image src={logo} boxSize='60px'></Image>
+        <Image src={logo} boxSize='60px' />
         <ColorModeSwitch />
     </HStack>
   )
