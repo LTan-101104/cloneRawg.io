@@ -1,6 +1,7 @@
 export interface Game {
     id: number,
-    name: string
+    name: string,
+    background_image: string
 }
 
 export interface FetchGameResponse {
