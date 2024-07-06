@@ -12,13 +12,17 @@ function App() {
           base: `"nav" "main"`,
           lg: `"nav nav" "aside main"` //larger than 1024
         }}
+        templateColumns={{
+          base: '1fr',
+          lg: '200px 1fr'
+        }}
       >
 
         <GridItem area='nav'>
           <Navbar />
         </GridItem>
         <Show above='lg'>
-          <GridItem area='aside' bg = 'inherit'>
+          <GridItem area='aside' bg = 'inherit' marginLeft={'10px'}>
               <GenreList />
           </GridItem>
         </Show>
