@@ -1,7 +1,7 @@
-import { Game } from "../interface/interface"
+import { Game, Genre } from "../interface/interface"
 import useData from "./useData"
-const useGames = () => {
-    return useData<Game>("games")
+const useGames = (selectedGenre: Genre | null) => {
+    return useData<Game>("games", { params: { genres: selectedGenre?.id } }, [selectedGenre?.id])
 
 }
 
