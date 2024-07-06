@@ -4,6 +4,12 @@ export interface Platform {
     slug: string
 }
 
+export interface PlatformParent {
+    name: string,
+    id: string,
+    slug: string,
+}
+
 export interface Game {
     id: number,
     name: string,
