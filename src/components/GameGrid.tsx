@@ -10,19 +10,22 @@ const GameGrid = () => {
     const skeletons = Array<number>(12).fill(1).map((_v, i) => i)
     return (
         <>
-        {
-            error ? <Text>{error}</Text> :
-                <SimpleGrid columns={[1, 2, 3]} spacing={'10px'} margin={'10px'}>
-                    {isLoading && skeletons.map(s => <GameCardContainer>
-                        <GameCardSkeleton key={s}/>
-                    </GameCardContainer>)}
-                    {games.map(game => 
-                        <GameCardContainer>
-                            <GameCard key={game.id} game={game} />
-                        </GameCardContainer>
-                    )}
-                </SimpleGrid>
-        }
+            {
+                error ? <Text>{error}</Text> :
+                    <SimpleGrid columns={[1, 2, 3]} spacing={'10px'} margin={'10px'}>
+                        {isLoading && skeletons.map(s => 
+                            <GameCardContainer>
+                                <GameCardSkeleton key={s}/>
+                            </GameCardContainer>
+                        )}
+                        
+                        {games.map(game => 
+                            <GameCardContainer>
+                                <GameCard key={game.id} game={game} />
+                            </GameCardContainer>
+                        )}
+                    </SimpleGrid>
+            }
         
         
         </>
