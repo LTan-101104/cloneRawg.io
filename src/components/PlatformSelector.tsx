@@ -1,8 +1,14 @@
 import { Button, Menu, MenuButton, MenuItem, MenuList, Spinner, Text } from '@chakra-ui/react'
 import { FaChevronDown } from "react-icons/fa";
 import { usePlatform } from '../hooks/usePlatform';
+import { PlatformParent } from '../interface/interface';
+import { CiSquareCheck } from 'react-icons/ci';
 
-const PlatformSelector = () => {
+interface Props{
+    onSelect: (obj : PlatformParent) => void;
+    selectedPlatform: PlatformParent | null;
+}
+const PlatformSelector = ({onSelect, selectedPlatform} : Props) => {
     const {data: platforms, isLoading, error} = usePlatform();
     
     return (
@@ -11,14 +17,19 @@ const PlatformSelector = () => {
             isLoading ? <Spinner /> :
             <>
             
-                <MenuButton as = {Button}  rightIcon={<FaChevronDown />}>
+                <MenuButton as = {Button}  rightIcon={<FaChevronDown />} >
                     Platforms
                 </MenuButton>
                 <MenuList>
                     {platforms.map((p) =>{
                         return (
-                            <MenuItem key={p.id}>
-                                {p.name}
+                            <MenuItem 
+                                key={p.id} 
+                                
+                                onClick={() => onSelect(p)} 
+                                icon={p.id === selectedPlatform?.id ? <CiSquareCheck /> : undefined}
+                                >
+                                    {p.name}
                             </MenuItem>
                         )
                     })}
