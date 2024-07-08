@@ -8,6 +8,7 @@ import { Genre, PlatformParent, sortOption } from './interface/interface'
 import PlatformSelector from './components/PlatformSelector'
 import { GameQuery } from './interface/interface'
 import SortSelector from './components/SortSelector'
+import GameHeading from './components/GameHeading'
 
 function App() {
   const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery)
@@ -34,6 +35,7 @@ function App() {
           </GridItem>
         </Show>
         <GridItem area = 'main' margin={'10px'}>
+          <GameHeading gameQuery={gameQuery}/>
           <HStack spacing={'6px'} marginBottom={'5px'}>
             <PlatformSelector onSelect={(platform: PlatformParent) => setGameQuery({...gameQuery, platform})} selectedPlatform={gameQuery.platform}/>
             <SortSelector selectedSort = {gameQuery.sort} onSelectSort={(sortOpt: sortOption) => setGameQuery({...gameQuery, sort: sortOpt}) }/>
