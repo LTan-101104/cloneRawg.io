@@ -41,7 +41,11 @@ export interface FetchResponse<V> {
     results: V[]
 }
 
+export type sortOption = '' | '-added' | 'name' | '-released' | '-rating' | '-metacritic'
+
+
 export interface GameQuery {
     genre: Genre | null;
     platform: PlatformParent | null;
+    sort: sortOption | null;
 }

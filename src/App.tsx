@@ -4,7 +4,7 @@ import Navbar from './components/Navbar'
 import GameGrid from './components/GameGrid'
 import GenreList from './components/GenreList'
 import { useState } from 'react'
-import { Genre, PlatformParent } from './interface/interface'
+import { Genre, PlatformParent, sortOption } from './interface/interface'
 import PlatformSelector from './components/PlatformSelector'
 import { GameQuery } from './interface/interface'
 import SortSelector from './components/SortSelector'
@@ -36,7 +36,7 @@ function App() {
         <GridItem area = 'main' margin={'10px'}>
           <HStack spacing={'4px'} marginBottom={'5px'}>
             <PlatformSelector onSelect={(platform: PlatformParent) => setGameQuery({...gameQuery, platform})} selectedPlatform={gameQuery.platform}/>
-            <SortSelector />
+            <SortSelector selectedSort = {gameQuery.sort} onSelectSort={(sortOpt: sortOption) => setGameQuery({...gameQuery, sort: sortOpt}) }/>
           </HStack>
           <GameGrid gameQuery={gameQuery}/>
         </GridItem>
