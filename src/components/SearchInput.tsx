@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Input, InputGroup, InputLeftElement } from '@chakra-ui/react'
-import  { useRef } from 'react'
 import { BsSearch } from 'react-icons/bs'
 
 interface Props{
@@ -10,7 +9,7 @@ interface Props{
 //one way you did is a simple way where we used the onChange element
 //The other way is that you can implement a very simple form with one input field
 const SearchInput = ({onSelectGameName} : Props) => {
-  const ref = useRef<HTMLInputElement>(null);
+  // const ref = useRef<HTMLInputElement>(null);
 
   return (
     <InputGroup>
