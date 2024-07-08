@@ -1,8 +1,10 @@
-import { Game, Genre, PlatformParent } from "../interface/interface"
+import { Game, GameQuery } from "../interface/interface"
 import useData from "./useData"
-const useGames = (selectedGenre: Genre | null, selectedPlatformParent?: PlatformParent | null) => {
-    return useData<Game>("games", { params: { genres: selectedGenre?.id, parent_platforms: selectedPlatformParent?.id } },
-        [selectedGenre?.id, selectedPlatformParent?.id])
+const useGames = (gameQuery: GameQuery) => {
+    const { genre, platform: platformParent } = gameQuery;
+
+    return useData<Game>("games", { params: { genres: genre?.id, parent_platforms: platformParent?.id } },
+        [gameQuery])
 
 }
 
