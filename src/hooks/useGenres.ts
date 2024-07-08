@@ -1,7 +1,7 @@
-import { Genre } from "../interface/interface"
-import useData from "./useData"
+import { genres } from "../data/genre"
 
+//because genre raarely changes, we ship this as a static asset instead of having to fetch from online everytime we use it
 export const useGenres = () => {
-    return useData<Genre>('genres')
+    return { data: genres, error: null, isLoading: false }
 
 }
