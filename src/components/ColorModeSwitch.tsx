@@ -4,10 +4,10 @@ import React from 'react'
 const ColorModeSwitch = () => {
 const { colorMode, toggleColorMode } = useColorMode()
   return (
-    <HStack spacing={'3px'} >
+    <HStack spacing={'3px'} wrap={'nowrap'}>
         <Switch colorScheme='green' onChange={toggleColorMode}/>
         <Text>
-            Switch To {colorMode === 'light' ? 'Dark' : "Light"}
+            {colorMode === 'light' ? 'Dark' : "Light"}
         </Text>
 
     </HStack>
