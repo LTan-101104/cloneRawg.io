@@ -48,4 +48,5 @@ export interface GameQuery {
     genre: Genre | null;
     platform: PlatformParent | null;
     sort: sortOption | null;
+    search: string | null;
 }

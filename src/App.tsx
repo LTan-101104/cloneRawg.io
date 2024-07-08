@@ -26,7 +26,7 @@ function App() {
         }}
       >
         <GridItem area='nav'>
-          <Navbar />
+          <Navbar onChangeInput={(query: string) => setGameQuery({...gameQuery, search: query}) }/>
         </GridItem>
         <Show above='lg'>
           <GridItem area='aside' bg = 'inherit' marginLeft={'10px'}>
